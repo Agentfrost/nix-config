@@ -91,15 +91,24 @@
     };
   };
 
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
+
   users.users = {
     frost = {
       isNormalUser = true;
       createHome = true;
-      extraGroups = ["wheel" "wireshark"];
+      extraGroups = ["wheel" "wireshark" "libvirtd"];
       group = "users";
       home = "/home/frost";
       shell = pkgs.zsh;
-      packages = with pkgs; [ alacritty ];
+      packages = with pkgs; [ 
+	alacritty 
+	vscodium-fhs 
+	kicad 
+	distrobox 
+	virt-manager 
+      ];
     };
   };
 }
