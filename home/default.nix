@@ -108,6 +108,8 @@
 	kicad 
 	distrobox 
 	virt-manager 
+	gparted
+	htop
       ];
     };
   };
