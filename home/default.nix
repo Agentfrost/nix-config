@@ -1,12 +1,14 @@
-{config, inputs, pkgs, ...}: let username = (import ./../config.nix).username; in {
+{ config, inputs, pkgs, ... }:
+let username = (import ./../config.nix).username;
+in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-      ./zsh.nix
-      ./git.nix
-      ./kitty.nix
-      ./librewolf.nix
-      ./neovim.nix
-      ./defaultPrograms.nix
+    ./zsh.nix
+    ./git.nix
+    ./kitty.nix
+    ./librewolf.nix
+    ./neovim.nix
+    ./defaultPrograms.nix
   ];
 
   home.username = username;
@@ -16,10 +18,13 @@
 
   home.packages = with pkgs; [
     nerdfonts
-      gns3-gui
-      trash-cli
+    gns3-gui
+    trash-cli
+    nixfmt
+    prettierd
+    shfmt
   ];
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
-								  }
+}
