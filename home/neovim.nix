@@ -47,6 +47,11 @@
         action = "<cmd>e #<CR>";
       }
       {
+        mode = "t";
+        key = "<Esc><Esc>";
+        action = "<C-\\><C-n>";
+      }
+      {
         mode = "n";
         key = "<leader>bd";
         action = ''
@@ -75,10 +80,14 @@
           	'';
         lua = true;
       }
+      {
+        mode = "n";
+        key = "<leader>wd";
+        action = "<C-W>c";
+      }
     ];
     plugins = {
       lualine.enable = true;
-      neo-tree.enable = true;
       treesitter.enable = true;
       treesitter-context.enable = true;
       treesitter-textobjects.enable = true;
@@ -89,6 +98,16 @@
       notify.enable = true;
       noice.enable = true;
       persistence.enable = true;
+      neo-tree = {
+        enable = true;
+        extraOptions = {
+          open_files_do_not_replace_types = {
+            __raw = ''
+              { "trouble", "qf" }
+              	'';
+          };
+        };
+      };
       lsp = {
         enable = true;
         servers = {
@@ -185,6 +204,11 @@
             { name = "buffer"; }
             { name = "luasnip"; }
           ];
+          snippet.expand = ''
+            function(args)
+                require('luasnip').lsp_expand(args.body)
+              end
+            	  '';
           mapping = {
             "<C-n>" =
               "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })";
