@@ -1,5 +1,5 @@
 { config, inputs, pkgs, ... }:
-let username = (import ./../config.nix).username;
+let username = (import ./../userconfig.nix).username;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim

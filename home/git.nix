@@ -1,5 +1,5 @@
 { config, ... }:
-let identity = (import ./../config.nix).git;
+let identity = (import ./../userconfig.nix).git;
 in {
   programs.git = {
     enable = true;

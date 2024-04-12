@@ -46,6 +46,35 @@
         key = "<leader>bb";
         action = "<cmd>e #<CR>";
       }
+      {
+        mode = "n";
+        key = "<leader>bd";
+        action = ''
+          function()
+                  local bd = require("mini.bufremove").delete
+                  if vim.bo.modified then
+                    local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+                    if choice == 1 then -- Yes
+                      vim.cmd.write()
+                      bd(0)
+                    elseif choice == 2 then -- No
+                      bd(0, true)
+                    end
+                  else
+                    bd(0)
+                  end
+                end
+          	'';
+        lua = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>bD";
+        action = ''
+          function() require("mini.bufremove").delete(0, true) end
+          	'';
+        lua = true;
+      }
     ];
     plugins = {
       lualine.enable = true;
@@ -60,7 +89,6 @@
       notify.enable = true;
       noice.enable = true;
       persistence.enable = true;
-      startup.enable = true;
       lsp = {
         enable = true;
         servers = {
@@ -74,10 +102,6 @@
           tailwindcss.enable = true;
           tsserver.enable = true;
         };
-      };
-      alpha = {
-        enable = true;
-        theme = "dashboard";
       };
       illuminate = {
         enable = true;
