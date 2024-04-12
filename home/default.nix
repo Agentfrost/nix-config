@@ -23,6 +23,7 @@ in {
     nixfmt
     prettierd
     shfmt
+    tree
   ];
 
   programs.home-manager.enable = true;
