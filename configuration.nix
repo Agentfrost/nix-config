@@ -59,9 +59,12 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio = {
+  	enable = true;
   	package = pkgs.pulseaudioFull;
   	extraConfig = "load-module module-switch-on-connect";
   };
+
+  services.pipewire.enable = false;
 
   # Enable Bluetooth
   hardware.bluetooth = {
@@ -80,12 +83,11 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    neovim
+    vim
     wget
     curl
     kitty
     zsh
-    lxappearance
     gns3-server
     wireshark
   ];
