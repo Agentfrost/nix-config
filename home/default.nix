@@ -24,6 +24,7 @@ in {
     prettierd
     shfmt
     tree
+    webex
   ];
 
   programs.home-manager.enable = true;
