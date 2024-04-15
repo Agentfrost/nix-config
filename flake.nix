@@ -23,6 +23,7 @@
           system = configuration.system;
           modules = [
             ./${configuration.hostname}/hardware-configuration.nix
+            { networking.hostName = configuration.hostname; }
             ./configuration.nix
             {
               users.users.${configuration.username} = {
