@@ -20,11 +20,12 @@ in {
     nerdfonts
     gns3-gui
     trash-cli
-    nixfmt
+    nixfmt-rfc-style
     prettierd
     shfmt
     tree
     webex
+    calibre
   ];
 
   programs.home-manager.enable = true;
