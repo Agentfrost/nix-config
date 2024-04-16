@@ -116,7 +116,11 @@
           elixirls.enable = true;
           gopls.enable = true;
           pyright.enable = true;
-          rust-analyzer.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
           svelte.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
@@ -196,8 +200,8 @@
       cmp = {
         enable = true;
         autoEnableSources = true;
-        settings.completion.completeopt = "menu,menuone,oninsert";
-        extraOptions = {
+        settings = {
+          completion.completeopt = "menu,menuone,oninsert";
           sources = [
             { name = "path"; }
             { name = "nvim_lsp"; }
