@@ -1,6 +1,13 @@
-{ config, inputs, pkgs, ... }:
-let username = (import ./../userconfig.nix).username;
-in {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+let
+  username = (import ./../userconfig.nix).username;
+in
+{
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./zsh.nix
