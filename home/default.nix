@@ -33,6 +33,7 @@ in
     tree
     webex
     calibre
+    unzip
   ];
 
   programs.home-manager.enable = true;
