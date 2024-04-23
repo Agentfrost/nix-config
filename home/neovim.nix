@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -85,6 +86,11 @@
         key = "<leader>wd";
         action = "<C-W>c";
       }
+      {
+        mode = "n";
+        key = "K";
+        action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+      }
     ];
     plugins = {
       lualine.enable = true;
@@ -155,10 +161,8 @@
       };
       bufferline = {
         enable = true;
-        closeCommand =
-          ''function(n) require(" mini.bufremove ").delete(n, false) end'';
-        rightMouseCommand =
-          ''function(n) require(" mini.bufremove ").delete(n, false) end'';
+        closeCommand = ''function(n) require(" mini.bufremove ").delete(n, false) end'';
+        rightMouseCommand = ''function(n) require(" mini.bufremove ").delete(n, false) end'';
         diagnostics = "nvim_lsp";
         diagnosticsIndicator = ''
           function(_, _, diag)
@@ -167,12 +171,14 @@
                 return vim.trim(ret)
               end
         '';
-        offsets = [{
-          filetype = "neo-tree";
-          text = "Neo-tree";
-          highlight = "Directory";
-          text_align = "left";
-        }];
+        offsets = [
+          {
+            filetype = "neo-tree";
+            text = "Neo-tree";
+            highlight = "Directory";
+            text_align = "left";
+          }
+        ];
       };
       indent-blankline = {
         enable = true;
@@ -214,10 +220,8 @@
               end
             	  '';
           mapping = {
-            "<C-n>" =
-              "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })";
-            "<C-p>" =
-              "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })";
+            "<C-n>" = "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })";
+            "<C-p>" = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })";
             "<C-b>" = "cmp.mapping.scroll_docs(-4)";
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<C-Space>" = "cmp.mapping.complete()";
