@@ -34,6 +34,7 @@ in
     webex
     calibre
     unzip
+    protonvpn-gui
   ];
 
   programs.home-manager.enable = true;
