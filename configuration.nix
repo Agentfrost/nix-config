@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   boot.loader = {
@@ -21,15 +26,23 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # DisplayManager
+
+  services.displayManager = {
+    sddm.enable = true;
+    defaultSession = "plasma";
+  };
+
+  # Desktop
+
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
+
   # X Server
 
   services.xserver = {
     enable = true;
-    desktopManager = { plasma5.enable = true; };
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "plasma";
-    };
     libinput = {
       enable = true;
       touchpad.tapping = true;
@@ -41,7 +54,7 @@
   };
 
   # Exclude Packages
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
     konsole
     oxygen
@@ -129,13 +142,14 @@
   # Nix Features
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   # Paths
   environment.pathsToLink = [ "/share/zsh" ];
 
   system.stateVersion = "23.11"; # DO NOT TOUCH
-
 }
-
