@@ -96,6 +96,16 @@
         key = "gd";
         action = "<cmd>lua vim.lsp.buf.definition()<CR>";
       }
+      {
+        mode = "n";
+        key = "<leader>dn";
+        action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>dp";
+        action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
+      }
     ];
     plugins = {
       lualine.enable = true;
