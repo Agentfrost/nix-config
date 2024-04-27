@@ -14,7 +14,6 @@ in
     ./git.nix
     ./kitty.nix
     ./librewolf.nix
-    ./neovim.nix
     ./defaultPrograms.nix
   ];
 
@@ -24,6 +23,7 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    neovim
     nerdfonts
     gns3-gui
     trash-cli
@@ -36,6 +36,11 @@ in
     unzip
     protonvpn-gui
   ];
+
+  xdg.configFile.nvim = {
+  	source = ../neovim;
+	recursive = true;
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
