@@ -35,8 +35,8 @@
 
   # Desktop
 
-  services.desktopManager = {
-    plasma6.enable = true;
+  services.xserver.desktopManager = {
+    plasma5.enable = true;
   };
 
   # X Server
@@ -54,7 +54,7 @@
   };
 
   # Exclude Packages
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
     plasma-browser-integration
     konsole
     oxygen
