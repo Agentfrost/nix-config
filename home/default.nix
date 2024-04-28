@@ -13,6 +13,7 @@ in
     ./zsh.nix
     ./git.nix
     ./kitty.nix
+    ./helix.nix
     ./librewolf.nix
     ./defaultPrograms.nix
   ];
@@ -23,11 +24,11 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    neovim
     nerdfonts
     gns3-gui
     trash-cli
     nixfmt-rfc-style
+    nil
     prettierd
     shfmt
     tree
@@ -36,11 +37,6 @@ in
     unzip
     protonvpn-gui
   ];
-
-  xdg.configFile.nvim = {
-  	source = ../neovim;
-	recursive = true;
-  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.11";
