@@ -4,12 +4,11 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "ayu_evolve";
+      theme = "gruvbox_dark_hard";
       editor = {
         line-number = "relative";
         completion-timeout = 5;
         completion-trigger-len = 1;
-        completion-replace = true;
         bufferline = "multiple";
         lsp.display-messages = true;
         statusline = {
