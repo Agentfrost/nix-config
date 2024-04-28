@@ -7,7 +7,40 @@
       theme = "ayu_evolve";
       editor = {
         line-number = "relative";
+        completion-timeout = 5;
+        completion-trigger-len = 1;
+        completion-replace = true;
+        bufferline = "multiple";
         lsp.display-messages = true;
+        statusline = {
+          left = [
+            "mode"
+            "spinner"
+            "version-control"
+          ];
+          center = [
+            "file-name"
+            "read-only-indicator"
+            "total-line-numbers"
+          ];
+          right = [
+            "diagnostics"
+            "selections"
+            "position"
+            "file-encoding"
+            "file-line-ending"
+            "file-type"
+          ];
+          separator = "|";
+          mode.normal = "NORMAL";
+          mode.insert = "INSERT";
+          mode.select = "SELECT";
+        };
+        cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
       };
     };
     languages = {
@@ -44,9 +77,7 @@
             tab-width = 2;
             unit = " ";
           };
-          language-servers = [
-            "elixir-ls"
-          ];
+          language-servers = [ "elixir-ls" ];
         }
       ];
     };
