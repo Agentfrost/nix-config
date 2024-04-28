@@ -7,17 +7,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       configuration = (import ./userconfig.nix);
       pkgs = import nixpkgs { system = configuration.system; };
-    in {
+    in
+    {
       nixosConfigurations = {
         ${configuration.hostname} = nixpkgs.lib.nixosSystem {
           system = configuration.system;
@@ -28,7 +36,12 @@
             {
               users.users.${configuration.username} = {
                 isNormalUser = true;
-                extraGroups = [ "wheel" "audio" "libvirtd" "wireshark" ];
+                extraGroups = [
+                  "wheel"
+                  "audio"
+                  "libvirtd"
+                  "wireshark"
+                ];
                 shell = pkgs.zsh;
               };
 
@@ -38,7 +51,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
               home-manager.users.${configuration.username} = import ./home;
             }
           ];

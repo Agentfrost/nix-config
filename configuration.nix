@@ -28,16 +28,10 @@
 
   # DisplayManager
 
-  services.displayManager = {
-    sddm.enable = true;
-    defaultSession = "plasma";
-  };
-
-  # Desktop
-
-  services.xserver.desktopManager = {
-    plasma5.enable = true;
-  };
+  # services.displayManager.gdm = {
+  #   enable = true;
+  #   wayland = true;
+  # };
 
   # X Server
 
@@ -51,28 +45,21 @@
       layout = "us";
       options = "ctrl:nocaps";
     };
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
   };
 
-  # Exclude Packages
-  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
-    plasma-browser-integration
-    konsole
-    oxygen
-    ark
-    elisa
-    khelpcenter
-    print-manager
-  ];
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio = {
+  # Sound
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    package = pkgs.pulseaudioFull;
-    extraConfig = "load-module module-switch-on-connect";
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
-
-  services.pipewire.enable = false;
 
   # Enable Bluetooth
   hardware.bluetooth = {

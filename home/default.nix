@@ -1,19 +1,17 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 let
   username = (import ./../userconfig.nix).username;
 in
 {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.hyprland.homeManagerModules.default
+    ./hyprland.nix
+    ./wofi.nix
     ./zsh.nix
     ./git.nix
     ./kitty.nix
     ./helix.nix
+    ./yazi.nix
     ./librewolf.nix
     ./defaultPrograms.nix
   ];
@@ -36,6 +34,7 @@ in
     calibre
     unzip
     protonvpn-gui
+    brillo
   ];
 
   programs.home-manager.enable = true;
