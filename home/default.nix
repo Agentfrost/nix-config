@@ -1,10 +1,9 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
   username = (import ./../userconfig.nix).username;
 in
 {
   imports = [
-    inputs.hyprland.homeManagerModules.default
     ./hyprland.nix
     ./wofi.nix
     ./zsh.nix
@@ -34,7 +33,7 @@ in
     calibre
     unzip
     protonvpn-gui
-    brillo
+    wev
   ];
 
   programs.home-manager.enable = true;
