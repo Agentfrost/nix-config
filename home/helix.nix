@@ -5,6 +5,10 @@
     defaultEditor = true;
     settings = {
       theme = "gruvbox_dark_hard";
+      keys.normal = {
+        "0" = "goto_line_start";
+        "$" = "goto_line_end";
+      };
       editor = {
         line-number = "relative";
         completion-timeout = 5;
