@@ -28,27 +28,24 @@
 
   # DisplayManager
 
-  # services.displayManager.gdm = {
-  #   enable = true;
-  #   wayland = true;
-  # };
-
-  # X Server
-
-  services.xserver = {
+  services.greetd = {
     enable = true;
-    libinput = {
-      enable = true;
-      touchpad.tapping = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --asterisks --remember --remember-user-session --time -cmd Hyprland";
+        user = "greeter";
+      };
     };
-    xkb = {
-      layout = "us";
-      options = "ctrl:nocaps";
-    };
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+  };
+
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal";
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
   };
 
   # Sound
@@ -72,6 +69,9 @@
       };
     };
   };
+
+  # Light Control
+  hardware.brillo.enable = true;
 
   # Firmware
   hardware.enableAllFirmware = true;
