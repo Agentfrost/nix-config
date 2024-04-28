@@ -42,6 +42,7 @@ in
           size = 8;
           passes = 3;
           xray = true;
+          popups = true;
           ignore_opacity = true;
         };
         drop_shadow = "yes";
@@ -73,7 +74,8 @@ in
         workspace_swipe = "off";
       };
       misc = {
-        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
       };
       windowrulev2 = "suppressevent maximize, class:.*";
       bind = [
@@ -120,6 +122,12 @@ in
         "${mainMod} SHIFT, 0, movetoworkspace, 10"
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
+        ",XF86MonBrightnessDown, exec, brillo -u 150000 -U 10"
+        ",XF86MonBrightnessUp, exec, brillo -u 150000 -A 10"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
       bindm = [
         "${mainMod}, mouse:272, movewindow"
