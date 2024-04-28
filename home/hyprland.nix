@@ -25,7 +25,7 @@ in
       };
       general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 5;
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -90,6 +90,14 @@ in
         "${mainMod}, L, movefocus, r"
         "${mainMod}, K, movefocus, u"
         "${mainMod}, J, movefocus, d"
+        "${mainMod} SHIFT, H, movewindow, l"
+        "${mainMod} SHIFT, J, movewindow, d"
+        "${mainMod} SHIFT, K, movewindow, u"
+        "${mainMod} SHIFT, L, movewindow, r"
+        "${mainMod} ALT, H, resizeactive, -10 0"
+        "${mainMod} ALT, J, resizeactive, 0 10"
+        "${mainMod} ALT, K, resizeactive, 0 -10"
+        "${mainMod} ALT, L, resizeactive, 10 0"
         "${mainMod}, 1, workspace, 1"
         "${mainMod}, 2, workspace, 2"
         "${mainMod}, 3, workspace, 3"
