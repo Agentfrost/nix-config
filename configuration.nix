@@ -28,25 +28,40 @@
 
   # DisplayManager
 
-  services.greetd = {
+  services.displayManager = {
+    sddm.enable = true;
+    defaultSession = "plasma";
+  };
+
+  # Desktop
+
+  services.xserver.desktopManager = {
+    plasma5.enable = true;
+  };
+
+  # XServer
+  services.xserver = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --asterisks --remember --remember-user-session --time -cmd Hyprland";
-        user = "greeter";
-      };
+    libinput = {
+      enable = true;
+      touchpad.tapping = true;
+    };
+    xkb = {
+      layout = "us";
+      options = "ctrl:nocaps";
     };
   };
 
-  systemd.services.greetd.serviceConfig = {
-    Type = "idle";
-    StandardInput = "tty";
-    StandardOutput = "tty";
-    StandardError = "journal";
-    TTYReset = true;
-    TTYVHangup = true;
-    TTYVTDisallocate = true;
-  };
+  # Exclude Packages
+  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
+    plasma-browser-integration
+    konsole
+    oxygen
+    ark
+    elisa
+    khelpcenter
+    print-manager
+  ];
 
   # Sound
   security.rtkit.enable = true;

@@ -4,8 +4,6 @@ let
 in
 {
   imports = [
-    ./hyprland.nix
-    ./wofi.nix
     ./zsh.nix
     ./git.nix
     ./kitty.nix
