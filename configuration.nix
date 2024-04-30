@@ -6,6 +6,7 @@
 }:
 
 {
+  imports = [ ./substituters.nix ];
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -99,6 +100,7 @@
     zsh
     gns3-server
     wireshark
+    cachix
   ];
 
   # Hypervisor
