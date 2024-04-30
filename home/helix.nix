@@ -8,6 +8,8 @@
       keys.normal = {
         "0" = "goto_line_start";
         "$" = "goto_line_end";
+        "S-h" = "goto_previous_buffer";
+        "S-l" = "goto_next_buffer";
       };
       editor = {
         line-number = "relative";
@@ -83,6 +85,14 @@
           language-servers = [ "elixir-ls" ];
         }
       ];
+
+      language-server.elixir-ls = {
+        config = {
+          elixirLS.dialyzerEnabled = true;
+          elixirLS.incrementalDialyzer = true;
+          elixirLS.suggestSpecs = true;
+        };
+      };
     };
   };
 }
