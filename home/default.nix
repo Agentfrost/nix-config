@@ -6,7 +6,7 @@ in
   imports = [
     ./zsh.nix
     ./git.nix
-    ./kitty.nix
+    ./wezterm.nix
     ./helix.nix
     ./yazi.nix
     ./librewolf.nix

@@ -96,7 +96,6 @@
     vim
     wget
     curl
-    kitty
     zsh
     gns3-server
     wireshark
