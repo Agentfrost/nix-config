@@ -53,7 +53,7 @@
   };
 
   # Exclude Packages
-  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     plasma-browser-integration
     konsole
     oxygen
