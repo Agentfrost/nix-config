@@ -32,6 +32,7 @@ in
     unzip
     protonvpn-gui
     wev
+    htop
   ];
 
   programs.home-manager.enable = true;
