@@ -24,8 +24,9 @@
             "version-control"
           ];
           center = [
-            "file-name"
+            "file-modification-indicator"
             "read-only-indicator"
+            "file-name"
             "total-line-numbers"
           ];
           right = [
