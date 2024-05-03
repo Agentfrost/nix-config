@@ -135,8 +135,18 @@
   programs.virt-manager.enable = true;
 
   # Firewall
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedTCPPortRanges = [
+    {
+      from = 1714;
+      to = 1764;
+    } # KDE Connect
+  ];
+  networking.firewall.allowedUDPPortRanges = [
+    {
+      from = 1714;
+      to = 1764;
+    } # KDE Connect
+  ];
   networking.firewall.enable = true;
 
   # NixPkgs
