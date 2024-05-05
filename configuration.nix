@@ -40,13 +40,16 @@
     plasma5.enable = true;
   };
 
+  # Libinput
+
+  services.libinput = {
+    enable = true;
+    touchpad.tapping = true;
+  };
+
   # XServer
   services.xserver = {
     enable = true;
-    libinput = {
-      enable = true;
-      touchpad.tapping = true;
-    };
     xkb = {
       layout = "us";
       options = "ctrl:nocaps";
