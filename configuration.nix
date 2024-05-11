@@ -125,9 +125,10 @@
     cachix
     lshw
     protontricks
+    wine64
   ];
 
-  # Should have a home manager module
+  # Gaming
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
