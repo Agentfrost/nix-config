@@ -124,7 +124,14 @@
     wireshark
     cachix
     lshw
+    protontricks
   ];
+
+  # Should have a home manager module
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  };
 
   # Hypervisor
   virtualisation.libvirtd = {
