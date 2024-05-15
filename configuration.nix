@@ -151,6 +151,7 @@
     } # KDE Connect
   ];
   networking.firewall.enable = true;
+  networking.wireguard.enable = true;
 
   # NixPkgs
   nixpkgs.config.allowUnfree = true;
