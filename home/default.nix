@@ -1,11 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   username = (import ./../userconfig.nix).username;
 in
 {
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
     ./zsh.nix
     ./git.nix
+    ./nixvim.nix
     ./wezterm.nix
     ./helix.nix
     ./yazi.nix
