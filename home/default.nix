@@ -35,6 +35,8 @@ in
     protonvpn-gui
     wev
     htop
+    xclip
+    vscode-langservers-extracted
   ];
 
   programs.home-manager.enable = true;
