@@ -37,6 +37,7 @@ in
     htop
     xclip
     vscode-langservers-extracted
+    zint
   ];
 
   programs.home-manager.enable = true;
