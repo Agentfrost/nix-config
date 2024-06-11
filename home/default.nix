@@ -38,6 +38,7 @@ in
     xclip
     vscode-langservers-extracted
     zint
+    signal-desktop
   ];
 
   programs.home-manager.enable = true;
