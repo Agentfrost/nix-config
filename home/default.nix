@@ -39,6 +39,7 @@ in
     vscode-langservers-extracted
     zint
     signal-desktop
+    traceroute
   ];
 
   programs.home-manager.enable = true;
