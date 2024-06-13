@@ -44,7 +44,7 @@
       {
         mode = "n";
         key = "<leader>bd";
-        action = ''
+        action._raw = ''
           function()
                   local bd = require("mini.bufremove").delete
                   if vim.bo.modified then
@@ -65,7 +65,7 @@
       {
         mode = "n";
         key = "<leader>bD";
-        action = ''
+        action._raw = ''
           function() require("mini.bufremove").delete(0, true) end
           	'';
         lua = true;
