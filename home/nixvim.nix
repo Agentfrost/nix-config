@@ -8,6 +8,8 @@
       number = true;
       relativenumber = true;
       shiftwidth = 2;
+      spell = true;
+      spelllang = "en_us";
     };
     keymaps = [
       {
