@@ -94,6 +94,26 @@
           elixirLS.suggestSpecs = true;
         };
       };
+
+      language-server.texlab.config = {
+        texlab.build = {
+          executable = "tectonic";
+          args = [
+            "-X"
+            "compile"
+            "%f"
+            "--synctex"
+            "--keep-logs"
+            "--keep-intermediates"
+          ];
+          onSave = true;
+        };
+        texlab.forwardSearch.executable = "okular";
+        texlab.forwardSearch.args = [
+          "--unique"
+          "file:%p#src:%l%f"
+        ];
+      };
     };
   };
 }
