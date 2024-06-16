@@ -40,6 +40,7 @@ in
     zint
     signal-desktop
     traceroute
+    libreoffice
   ];
 
   programs.home-manager.enable = true;
