@@ -41,8 +41,6 @@ in
     signal-desktop
     traceroute
     libreoffice
-    tectonic
-    texlab
   ];
 
   programs.home-manager.enable = true;
