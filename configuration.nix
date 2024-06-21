@@ -168,5 +168,5 @@
   # Paths
   environment.pathsToLink = [ "/share/zsh" ];
 
-  system.stateVersion = "23.11"; # DO NOT TOUCH
+  system.stateVersion = "24.05"; # DO NOT TOUCH
 }
