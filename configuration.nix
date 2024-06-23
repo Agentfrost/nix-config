@@ -136,6 +136,7 @@
   # System Programs
   programs.dconf.enable = true;
   programs.virt-manager.enable = true;
+  programs.wireshark.enable = true;
 
   # Firewall
   networking.firewall.allowedTCPPortRanges = [
