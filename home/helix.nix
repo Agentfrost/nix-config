@@ -85,7 +85,36 @@
           };
           language-servers = [ "elixir-ls" ];
         }
+        {
+          name = "svelte";
+          scope = "source.svelte";
+          injection-regex = "svelte";
+          file-types = [ "svelte" ];
+          roots = [ "package.json" ];
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "svelte"
+              "--plugin"
+              "prettier-plugin-svelte"
+            ];
+          };
+          language-servers = [
+            "svelteserver"
+            "tailwindcss-language-server"
+          ];
+        }
       ];
+
+      language-server.tailwindcss-language-server = {
+        command = "tailwindcss-language-server";
+      };
 
       language-server.elixir-ls = {
         config = {
