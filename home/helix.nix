@@ -110,6 +110,29 @@
             "tailwindcss-language-server"
           ];
         }
+        {
+          name = "typescript";
+          scope = "source.typescript";
+          injection-regex = "typescript";
+          file-types = [
+            "typescript"
+            "ts"
+          ];
+          roots = [ "package.json" ];
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
+          language-servers = [ "typescript-language-server" ];
+        }
       ];
 
       language-server.tailwindcss-language-server = {
