@@ -41,6 +41,7 @@ in
     signal-desktop
     traceroute
     libreoffice
+    inkscape
   ];
 
   programs.home-manager.enable = true;
