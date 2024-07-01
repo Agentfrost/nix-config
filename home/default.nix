@@ -44,6 +44,7 @@ in
     inkscape
     stremio
     chromium
+    notesnook
   ];
 
   programs.home-manager.enable = true;
