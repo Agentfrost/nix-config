@@ -42,6 +42,8 @@ in
     traceroute
     libreoffice
     inkscape
+    stremio
+    chromium
   ];
 
   programs.home-manager.enable = true;
