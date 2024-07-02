@@ -45,6 +45,7 @@ in
     stremio
     chromium
     notesnook
+    vlc
   ];
 
   programs.home-manager.enable = true;
