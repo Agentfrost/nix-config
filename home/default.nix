@@ -44,7 +44,6 @@ in
     inkscape
     stremio
     chromium
-    notesnook
     vlc
   ];
 
