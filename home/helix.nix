@@ -72,7 +72,6 @@
           file-types = [
             "ex"
             "exs"
-            "heex"
           ];
           shebangs = [ "elixir" ];
           roots = [ "mix.exs" ];
@@ -105,10 +104,7 @@
               "prettier-plugin-svelte"
             ];
           };
-          language-servers = [
-            "svelteserver"
-            "tailwindcss-language-server"
-          ];
+          language-servers = [ "svelteserver" ];
         }
         {
           name = "typescript";
