@@ -129,6 +129,33 @@
           };
           language-servers = [ "typescript-language-server" ];
         }
+
+        {
+          name = "tsx";
+          scope = "source.tsx";
+          injection-regex = "tsx";
+          file-types = [
+            "tsx"
+            "jsx"
+          ];
+          roots = [ "package.json" ];
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
+          language-servers = [
+            "typescript-language-server"
+            "tailwindcss-language-server"
+          ];
+        }
       ];
 
       language-server.tailwindcss-language-server = {
