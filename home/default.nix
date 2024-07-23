@@ -22,7 +22,6 @@ in
 
   home.packages = with pkgs; [
     nerdfonts
-    gns3-gui
     trash-cli
     nixfmt-rfc-style
     nil
