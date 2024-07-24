@@ -44,6 +44,7 @@ in
     stremio
     chromium
     vlc
+    openconnect
   ];
 
   programs.home-manager.enable = true;
