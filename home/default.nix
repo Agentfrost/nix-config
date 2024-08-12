@@ -45,6 +45,9 @@ in
     chromium
     vlc
     openconnect
+    sqlitebrowser
+    imagemagick
+    remmina
   ];
 
   programs.home-manager.enable = true;
