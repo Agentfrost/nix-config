@@ -84,7 +84,9 @@
       notify.enable = true;
       noice.enable = true;
       persistence.enable = true;
-      markdown-preview.enable = true;
+      markdown-preview = {
+        enable = true;
+      };
       lsp = {
         enable = true;
         servers = {
@@ -205,5 +207,20 @@
         };
       };
     };
+    extraConfigLuaPre = ''
+      do
+        local extra_nixvim_globals = {
+          mkdp_preview_options = {
+            uml = {
+              server = 'http://localhost:9876'
+            }
+          }
+        }
+
+        for k, v in pairs(extra_nixvim_globals) do
+          vim.g[k] = v
+        end
+      end
+    '';
   };
 }
