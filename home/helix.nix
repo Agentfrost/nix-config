@@ -72,7 +72,6 @@
           file-types = [
             "ex"
             "exs"
-            "heex"
           ];
           shebangs = [ "elixir" ];
           roots = [ "mix.exs" ];
@@ -85,7 +84,83 @@
           };
           language-servers = [ "elixir-ls" ];
         }
+        {
+          name = "svelte";
+          scope = "source.svelte";
+          injection-regex = "svelte";
+          file-types = [ "svelte" ];
+          roots = [ "package.json" ];
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "svelte"
+              "--plugin"
+              "prettier-plugin-svelte"
+            ];
+          };
+          language-servers = [ "svelteserver" ];
+        }
+        {
+          name = "typescript";
+          scope = "source.typescript";
+          injection-regex = "typescript";
+          file-types = [
+            "typescript"
+            "ts"
+          ];
+          roots = [ "package.json" ];
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
+          language-servers = [ "typescript-language-server" ];
+        }
+
+        {
+          name = "tsx";
+          scope = "source.tsx";
+          injection-regex = "tsx";
+          file-types = [
+            "tsx"
+            "jsx"
+          ];
+          roots = [ "package.json" ];
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
+          language-servers = [
+            "typescript-language-server"
+            "tailwindcss-language-server"
+          ];
+        }
       ];
+
+      language-server.tailwindcss-language-server = {
+        command = "tailwindcss-language-server";
+      };
 
       language-server.elixir-ls = {
         config = {
@@ -93,6 +168,26 @@
           elixirLS.incrementalDialyzer = true;
           elixirLS.suggestSpecs = true;
         };
+      };
+
+      language-server.texlab.config = {
+        texlab.build = {
+          executable = "tectonic";
+          args = [
+            "-X"
+            "compile"
+            "%f"
+            "--synctex"
+            "--keep-logs"
+            "--keep-intermediates"
+          ];
+          onSave = true;
+        };
+        texlab.forwardSearch.executable = "okular";
+        texlab.forwardSearch.args = [
+          "--unique"
+          "file:%p#src:%l%f"
+        ];
       };
     };
   };

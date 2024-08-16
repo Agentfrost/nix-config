@@ -1,11 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   username = (import ./../userconfig.nix).username;
 in
 {
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
     ./zsh.nix
     ./git.nix
+    ./nixvim.nix
     ./wezterm.nix
     ./helix.nix
     ./yazi.nix
@@ -20,7 +22,6 @@ in
 
   home.packages = with pkgs; [
     nerdfonts
-    gns3-gui
     trash-cli
     nixfmt-rfc-style
     nil
@@ -33,6 +34,20 @@ in
     protonvpn-gui
     wev
     htop
+    xclip
+    vscode-langservers-extracted
+    zint
+    signal-desktop
+    traceroute
+    libreoffice
+    inkscape
+    stremio
+    chromium
+    vlc
+    openconnect
+    sqlitebrowser
+    imagemagick
+    remmina
   ];
 
   programs.home-manager.enable = true;
