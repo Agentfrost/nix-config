@@ -42,7 +42,6 @@ in
     libreoffice
     inkscape
     stremio
-    chromium
     vlc
     openconnect
     sqlitebrowser
