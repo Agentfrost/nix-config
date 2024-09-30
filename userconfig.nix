@@ -1,6 +1,6 @@
 {
   username = "frost";
-  hostname = "UserWork";
+  hostname = "UserDev";
   system = "x86_64-linux";
   git = {
     username = "Agentfrost";

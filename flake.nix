@@ -29,9 +29,9 @@
         ${configuration.hostname} = nixpkgs.lib.nixosSystem {
           system = configuration.system;
           modules = [
-            ./${configuration.hostname}/hardware-configuration.nix
+            ./devices/${configuration.hostname}/hardware-configuration.nix
             { networking.hostName = configuration.hostname; }
-            ./configuration.nix
+            ./devices/${configuration.hostname}/configuration.nix
             {
               users.users.${configuration.username} = {
                 isNormalUser = true;
@@ -54,7 +54,7 @@
               home-manager.extraSpecialArgs = {
                 inherit inputs;
               };
-              home-manager.users.${configuration.username} = import ./home;
+              home-manager.users.${configuration.username} = import ./users/${configuration.username}/home;
             }
           ];
         };
