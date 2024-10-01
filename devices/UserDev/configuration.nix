@@ -9,13 +9,19 @@
   imports = [ ./substituters.nix ];
   boot.loader = {
     efi = {
-      canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
+      canTouchEfiVariables = true;
     };
     grub = {
       enable = true;
       device = "nodev";
       efiSupport = true;
+      extraEntries = ''
+        menuentry "NixOS - Pentesting" {
+          search --no-floppy --set=root --label BOOT-PT
+          configfile /grub/grub.cfg
+        }
+      '';
     };
   };
 

@@ -21,7 +21,7 @@
   boot.initrd.luks.devices."dev".device = "/dev/disk/by-uuid/846166fd-906d-4800-aecc-8a52f51741ca";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
+    { device = "/dev/disk/by-uuid/B22A-3F88";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
@@ -36,7 +36,6 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp4s0f3u1.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
