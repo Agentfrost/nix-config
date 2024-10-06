@@ -67,6 +67,16 @@
     print-manager
   ];
 
+  #Fonts
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "Hack"
+        "JetBrainsMono"
+      ];
+    })
+  ];
+
   # Sound
   security.rtkit.enable = true;
   services.pipewire = {

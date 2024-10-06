@@ -21,7 +21,6 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    nerdfonts
     trash-cli
     nixfmt-rfc-style
     nil
