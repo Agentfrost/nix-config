@@ -41,6 +41,7 @@
                   "libvirtd"
                   "wireshark"
                   "video"
+                  "ubridge"
                 ];
                 shell = pkgs.zsh;
               };

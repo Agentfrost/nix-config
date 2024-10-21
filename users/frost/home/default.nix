@@ -21,8 +21,14 @@ in
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    (pkgs.nerdfonts.override { fonts = [ "Hack" "JetBrainsMono"]; })
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "Hack"
+        "JetBrainsMono"
+      ];
+    })
     trash-cli
+    gns3-gui
     nixfmt-rfc-style
     nil
     prettierd

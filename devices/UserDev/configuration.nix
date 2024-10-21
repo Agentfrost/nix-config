@@ -107,9 +107,10 @@
     wget
     curl
     zsh
-    gns3-server
     wireshark
     cachix
+    gns3-server
+    ubridge
   ];
 
   # Hypervisor
@@ -143,6 +144,18 @@
   programs.dconf.enable = true;
   programs.virt-manager.enable = true;
   programs.wireshark.enable = true;
+
+  #Groups
+  users.groups.ubridge = { };
+
+  #Security Wrappers
+  security.wrappers.ubridge = {
+    source = "/run/current-system/sw/bin/ubridge";
+    capabilities = "cap_net_admin,cap_net_raw=ep";
+    owner = "root";
+    group = "ubridge";
+    permissions = "u+rx,g+rx,o+rx";
+  };
 
   # Firewall
   networking.firewall.allowedTCPPortRanges = [
