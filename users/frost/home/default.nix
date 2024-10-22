@@ -54,6 +54,7 @@ in
     sqlitebrowser
     imagemagick
     remmina
+    transmission-qt
   ];
 
   programs.home-manager.enable = true;
