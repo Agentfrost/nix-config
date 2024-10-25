@@ -156,6 +156,13 @@
             "tailwindcss-language-server"
           ];
         }
+        {
+          name = "python";
+          scope = "source.python";
+          file-types = [ "py" ];
+          auto-format = true;
+          language-servers = [ "pylsp" ];
+        }
       ];
 
       language-server.tailwindcss-language-server = {
@@ -188,6 +195,11 @@
           "--unique"
           "file:%p#src:%l%f"
         ];
+      };
+
+      language-server.pylsp.config = {
+        pylsp.plugins.ruff.enabled = true;
+        pylsp.plugins.black.enabled = true;
       };
     };
   };
